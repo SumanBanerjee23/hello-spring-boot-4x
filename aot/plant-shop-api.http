@@ -1,0 +1,140 @@
+### Plant Shop API HTTP Requests
+### Base URL: http://localhost:8080
+
+### Health Check
+GET http://localhost:8080/api/plants/health
+
+### Get All Plants
+GET http://localhost:8080/api/plants
+
+### Get Plant by ID
+GET http://localhost:8080/api/plants/1
+
+### Get Plant by Name
+GET http://localhost:8080/api/plants/name/Monstera%20Deliciosa
+
+### Search Plants by Name
+GET http://localhost:8080/api/plants/search?name=Plant
+
+### Search Plants by Scientific Name
+GET http://localhost:8080/api/plants/search?scientificName=deliciosa
+
+### Search Plants by Price Range
+GET http://localhost:8080/api/plants/search?minPrice=20&maxPrice=50
+
+### Get Plants In Stock Only
+GET http://localhost:8080/api/plants/search?inStockOnly=true
+
+### Create New Plant
+POST http://localhost:8080/api/plants
+Content-Type: application/json
+
+{
+  "name": "Golden Pothos",
+  "scientificName": "Epipremnum aureum 'Golden'",
+  "price": 19.99,
+  "stockQuantity": 35
+}
+
+### Create Another Plant
+POST http://localhost:8080/api/plants
+Content-Type: application/json
+
+{
+  "name": "Parlor Palm",
+  "scientificName": "Chamaedorea elegans",
+  "price": 29.50,
+  "stockQuantity": 20
+}
+
+### Update Plant (Full Update)
+PUT http://localhost:8080/api/plants/1
+Content-Type: application/json
+
+{
+  "name": "Monstera Deliciosa",
+  "scientificName": "Monstera deliciosa",
+  "price": 49.99,
+  "stockQuantity": 30
+}
+
+### Update Plant Stock Only
+PATCH http://localhost:8080/api/plants/2/stock
+Content-Type: application/json
+
+{
+  "stockQuantity": 45
+}
+
+### Get Plant Statistics
+GET http://localhost:8080/api/plants/stats
+
+### Delete Plant
+DELETE http://localhost:8080/api/plants/15
+
+### Test Validation - Invalid Plant (Negative Price)
+POST http://localhost:8080/api/plants
+Content-Type: application/json
+
+{
+  "name": "Invalid Plant",
+  "scientificName": "Invalidus testus",
+  "price": -10.00,
+  "stockQuantity": 5
+}
+
+### Test Validation - Invalid Plant (Empty Name)
+POST http://localhost:8080/api/plants
+Content-Type: application/json
+
+{
+  "name": "",
+  "scientificName": "Invalidus testus",
+  "price": 25.00,
+  "stockQuantity": 5
+}
+
+### Test Validation - Duplicate Plant Name
+POST http://localhost:8080/api/plants
+Content-Type: application/json
+
+{
+  "name": "Monstera Deliciosa",
+  "scientificName": "Monstera deliciosa duplicate",
+  "price": 40.00,
+  "stockQuantity": 10
+}
+
+### Update Non-existent Plant (404 Error)
+PUT http://localhost:8080/api/plants/999
+Content-Type: application/json
+
+{
+  "name": "Non-existent Plant",
+  "scientificName": "Nonexistus testus",
+  "price": 25.00,
+  "stockQuantity": 5
+}
+
+### Delete Non-existent Plant (404 Error)
+DELETE http://localhost:8080/api/plants/999
+
+### Update Stock with Negative Value (400 Error)
+PATCH http://localhost:8080/api/plants/1/stock
+Content-Type: application/json
+
+{
+  "stockQuantity": -5
+}
+
+### Complex Search - Multiple Parameters
+GET http://localhost:8080/api/plants/search?name=Plant&minPrice=15&maxPrice=60&inStockOnly=true
+
+### Search with No Results
+GET http://localhost:8080/api/plants/search?name=NonExistentPlant
+
+### Get Non-existent Plant by ID (404 Error)
+GET http://localhost:8080/api/plants/999
+
+### Get Non-existent Plant by Name (404 Error)
+GET http://localhost:8080/api/plants/name/NonExistentPlant

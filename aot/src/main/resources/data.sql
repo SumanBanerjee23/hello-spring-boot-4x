@@ -1,0 +1,16 @@
+INSERT INTO plants (name, scientific_name, price, stock_quantity) VALUES
+('Monstera Deliciosa', 'Monstera deliciosa', 45.99, 25),
+('Snake Plant', 'Sansevieria trifasciata', 28.50, 40),
+('Pothos', 'Epipremnum aureum', 15.99, 60),
+('Peace Lily', 'Spathiphyllum wallisii', 32.75, 30),
+('Rubber Plant', 'Ficus elastica', 52.25, 20),
+('ZZ Plant', 'Zamioculcas zamiifolia', 38.99, 35),
+('Spider Plant', 'Chlorophytum comosum', 12.50, 50),
+('Aloe Vera', 'Aloe barbadensis miller', 18.75, 45),
+('Fiddle Leaf Fig', 'Ficus lyrata', 75.00, 15),
+('Boston Fern', 'Nephrolepis exaltata', 22.99, 28),
+('Chinese Money Plant', 'Pilea peperomioides', 24.99, 32),
+('Bird of Paradise', 'Strelitzia reginae', 65.50, 18),
+('Succulent Mix', 'Various succulents', 8.99, 100),
+('Orchid', 'Phalaenopsis', 42.00, 22),
+('Bamboo Palm', 'Chamaedorea seifrizii', 48.75, 25);
